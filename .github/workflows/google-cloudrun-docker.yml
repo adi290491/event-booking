@@ -69,7 +69,7 @@ jobs:
       # NOTE: Alternative option - authentication via credentials json
       - name: Google Auth
         id: auth
-        uses: "google-github-actions/auth@v0"
+        uses: "google-github-actions/auth@v2"
         with:
           credentials_json: "${{ secrets.SA_SECRET }}"
 
@@ -78,7 +78,7 @@ jobs:
       # Authenticate Docker to Google Cloud Artifact Registry
       - name: Docker Auth
         id: docker-auth
-        uses: "docker/login-action@v1"
+        uses: "docker/login-action@v3"
         with:
           username: "${{ secrets.DOCKER_USERNAME }}"
           password: "${{ secrets.DOCKER_ACTKN }}"
@@ -93,7 +93,7 @@ jobs:
 
       - name: Deploy to Cloud Run
         id: deploy
-        uses: google-github-actions/deploy-cloudrun@v0
+        uses: google-github-actions/deploy-cloudrun@v2
         with:
           service: ${{ env.SERVICE }}
           region: ${{ env.REGION }}
