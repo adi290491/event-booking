@@ -1,14 +1,14 @@
 package main
 
 import (
-	"event-booking/database"
+	_ "event-booking/database"
 	"event-booking/routes"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	database.InitConnection()
+	// database.InitConnection()
 	server := gin.Default()
 
 	routes.RegisterEndpoints(server)
