@@ -49,6 +49,7 @@ on:
     branches: ["master"]
 
 env:
+  name: dev
   PROJECT_ID: sapient-tangent-416301 # TODO: update Google Cloud project id
   GAR_LOCATION: us-east1 # TODO: update Artifact Registry location
   SERVICE: event-mgmt-svc # TODO: update Cloud Run service name

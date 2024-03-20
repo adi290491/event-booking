@@ -1,0 +1,10 @@
+server:
+  host: ${CLOUD_HOST}
+  port: ${PORT}
+
+database:
+  host: ${HOST_NAME}
+  port: ${PORT}
+  user: ${USER}
+  password: ${PASSWORD}
+  dbname: ${DB_NAME}

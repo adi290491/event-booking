@@ -1,17 +1,25 @@
 package main
 
 import (
-	_ "event-booking/database"
+	"event-booking/configurations"
+	"event-booking/database"
 	"event-booking/routes"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	// database.InitConnection()
+
+	var cfg configurations.Config
+	err := cfg.Init()
+
+	if err != nil {
+		panic(err)
+	}
+
+	database.InitConnection(&cfg)
 	server := gin.Default()
 
 	routes.RegisterEndpoints(server)
-
-	server.Run(":8080")
+	server.Run(cfg.Server.Host + ":" + cfg.Server.Port)
 }
